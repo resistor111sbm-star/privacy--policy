@@ -5,113 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Balance IQ</title>
     <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
+            line-height: 1.7;
+            color: var(--text-main);
+            max-width: 850px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
+            padding: 25px;
+            background-color: var(--bg-color);
         }
         .container {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-color);
         }
         h1 {
-            color: #0d47a1;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 12px;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .effective-date {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 30px;
         }
         h2 {
-            color: #1565c0;
-            margin-top: 25px;
+            color: var(--accent);
+            margin-top: 35px;
+            font-size: 20px;
+            border-left: 4px solid var(--accent);
+            padding-left: 10px;
         }
         p, li {
             font-size: 15px;
+            color: var(--text-main);
         }
         ul {
-            padding-left: 20px;
+            padding-left: 22px;
+            margin-top: 8px;
+        }
+        li {
+            margin-bottom: 8px;
         }
         a {
-            color: #1565c0;
+            color: var(--accent);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
         }
         a:hover {
             text-decoration: underline;
         }
-        .contact-card {
-            background-color: #f0f4f9;
-            border-left: 4px solid #1565c0;
-            padding: 15px 20px;
-            margin-top: 15px;
-            border-radius: 4px;
+        .contact-box {
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+            border-left: 5px solid var(--accent);
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 8px;
+        }
+        .contact-box p {
+            margin: 6px 0;
         }
         .footer {
-            margin-top: 30px;
-            padding-top: 15px;
-            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
             font-size: 13px;
-            color: #777;
+            color: var(--text-muted);
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Privacy Policy</h1>
-        <p><strong>Effective Date:</strong> October 20, 2026</p>
+        <div class="effective-date"><strong>Effective Date:</strong> October 20, 2026</div>
 
-        <p>We value your privacy and are committed to protecting your personal information. This Privacy Policy explains how <strong>Balance IQ</strong> ("App") collects, uses, and safeguards your data.</p>
+        <p>Welcome to <strong>Balance IQ</strong> ("we", "our", or "us"). We deeply value your trust and are staunchly committed to protecting your personal data and digital privacy. This comprehensive Privacy Policy outlines transparently how our application collects, utilizes, manages, and secures your information when you engage with our financial tracking services.</p>
 
-        <h2>1. Information We Collect</h2>
-        <p>To provide you with expense tracking, income analytics, and report generation features, Balance IQ may collect or process the following information:</p>
+        <h2>1. Information Architecture & Data Collection</h2>
+        <p>Balance IQ is engineered with a privacy-first mindset. To ensure optimal performance regarding income analytics, expense logging, and report compilation, we interact with the following categories of data:</p>
         <ul>
-            <li><strong>Financial Data:</strong> Income, expenses, category details, and transactions that you manually enter into the App.</li>
-            <li><strong>Exported Reports:</strong> Downloaded PDF or CSV files created from your tracking data.</li>
-            <li><strong>Device Information:</strong> Basic device details (such as operating system version) for application stability and debugging.</li>
+            <li><strong>User-Provided Financial Records:</strong> Income values, expense figures, custom category tags, budget notes, and monetary transactions that you manually input into the application database.</li>
+            <li><strong>Generated Documents:</strong> Exported financial reports formatted in PDF or CSV structures compiled directly from your local inputs.</li>
+            <li><strong>Telemetry & Device Diagnostics:</strong> Non-identifying device metrics, including operating system versions, crash logs, and performance diagnostics strictly utilized to eliminate bugs and enhance application stability.</li>
         </ul>
 
-        <h2>2. How We Use Your Data</h2>
-        <p>We use the collected information solely to:</p>
+        <h2>2. Purpose and Utilization of Data</h2>
+        <p>The information we process is strictly compartmentalized to deliver and optimize core product dynamics:</p>
         <ul>
-            <li>Display your total balance, income, expense summaries, and trend analytics.</li>
-            <li>Generate downloadable financial reports in PDF and CSV formats.</li>
-            <li>Improve app usability, stability, and overall user experience.</li>
+            <li>To dynamically compute net balances, categorize expenditures, and generate intuitive trend analytics.</li>
+            <li>To construct secure, downloadable financial summaries in structural PDF and CSV formats upon user request.</li>
+            <li>To continuously optimize app responsiveness, fix critical bugs, and refine overall User Interface/User Experience (UI/UX) dynamics.</li>
         </ul>
 
-        <h2>3. Data Storage and Security</h2>
+        <h2>3. Data Governance, Storage & Security Protocols</h2>
         <ul>
-            <li><strong>Data Protection:</strong> Your financial transaction records are stored securely to allow seamless access across your sessions.</li>
-            <li><strong>Security Measures:</strong> We implement standard security practices to protect your information against unauthorized access, loss, or alteration.</li>
+            <li><strong>Local & Secured State Management:</strong> Your financial transaction logs are processed and secured within robust storage environments to guarantee uninterrupted, private access throughout your user sessions.</li>
+            <li><strong>Proactive Security Measures:</strong> We deploy industry-standard administrative, physical, and technical safeguards designed meticulously to mitigate unauthorized entry, data leakage, alteration, or unlawful destruction.</li>
         </ul>
 
-        <h2>4. Data Sharing and Third-Party Services</h2>
+        <h2>4. Zero Third-Party Data Monetization</h2>
         <ul>
-            <li>We <strong>do not</strong> sell, trade, or rent your personal financial data to any third parties.</li>
-            <li>Data is only processed as necessary to fulfill essential app features or as required by applicable laws.</li>
+            <li>We maintain a strict <strong>Zero-Sale Policy</strong>. We do not trade, rent, lease, or monetize your personal or financial database to external commercial entities or advertisers.</li>
+            <li>Data interaction is strictly confined to internal operational frameworks required to maintain app features or satisfy mandatory regulatory compliance.</li>
         </ul>
 
-        <h2>5. User Rights and Controls</h2>
+        <h2>5. User Autonomy, Rights & Control Dashboard</h2>
         <ul>
-            <li><strong>Data Editing & Deletion:</strong> You can add, edit, or delete your transaction records at any time within Balance IQ.</li>
-            <li><strong>Exporting Data:</strong> You can export your financial data into CSV or PDF format whenever needed.</li>
+            <li><strong>Autonomous Modification:</strong> You maintain absolute administrative rights to input, edit, override, or permanently purge any transaction logs or categories inside Balance IQ instantly.</li>
+            <li><strong>Portability Control:</strong> You hold the absolute right to extract and download your complete financial records into portable CSV or PDF formats whenever required.</li>
         </ul>
 
-        <h2>6. Changes to This Privacy Policy</h2>
-        <p>We may update our Privacy Policy periodically. Any updates will be posted on this page with an updated "Effective Date."</p>
+        <h2>6. Policy Modifications & Evolution</h2>
+        <p>We reserve the authority to update, amend, or revise this Privacy Policy periodically to reflect technological upgrades or legal changes. Significant modifications will be instantly communicated via our official update channels, and the "Effective Date" at the top will be appropriately refreshed.</p>
 
-        <h2>7. Contact Us</h2>
-        <p>If you have any questions, concerns, or feedback regarding this Privacy Policy or your data in <strong>Balance IQ</strong>, please feel free to reach out to us:</p>
+        <h2>7. Developer Support & Community Channels</h2>
+        <p>If you have inquiries, bug reports, feature suggestions, or require technical support concerning Balance IQ or this Privacy Policy, connect with us through our verified official channels:</p>
         
-        <div class="contact-card">
-            <p style="margin:0;"><strong>Support Email:</strong> <a href="mailto:theunknownsquad999@gmail.com">theunknownsquad999@gmail.com</a></p>
+        <div class="contact-box">
+            <p><strong>Direct Developer Email:</strong> <a href="mailto:unknownsquad999@gmail.com">unknownsquad999@gmail.com</a></p>
+            <p><strong>Official Telegram Update Channel:</strong> <a href="https://t.me/alhamdulillah122sbm" target="_blank">t.me/THE UNKNOWN SQUAD</a></p>
         </div>
 
         <div class="footer">
-            <p>&copy; 2026 Balance IQ. All rights reserved.</p>
+            <p>&copy; 2026 Balance IQ. All rights reserved. Designed for smarter financial management.</p>
         </div>
     </div>
 </body>
