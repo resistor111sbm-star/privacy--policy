@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
+        /* CSS Variables for Light/Dark Theme */
         :root {
             --primary: #0f172a;
             --accent: #2563eb;
@@ -74,7 +75,7 @@
         .brand-logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             color: #ffffff;
             font-weight: 700;
             font-size: 20px;
@@ -82,18 +83,12 @@
             letter-spacing: 0.5px;
         }
 
-        .brand-icon {
-            width: 34px;
-            height: 34px;
-            background: linear-gradient(135deg, #38bdf8, #818cf8);
+        /* App Logo Image Styling */
+        .brand-logo-img {
+            width: 36px;
+            height: 36px;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 16px;
-            color: #ffffff;
-            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+            object-fit: contain;
         }
 
         /* Theme Toggle Button */
@@ -365,7 +360,8 @@
     <header class="hero-banner">
         <nav class="navbar">
             <a href="#" class="brand-logo">
-                <div class="brand-icon">BIQ</div>
+                <!-- App Logo Image -->
+                <img src="logo.png" alt="Balance IQ Logo" class="brand-logo-img">
                 <span>Balance IQ</span>
             </a>
             <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
