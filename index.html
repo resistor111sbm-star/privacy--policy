@@ -6,28 +6,31 @@
     <title>Privacy Policy - Balance IQ</title>
     
     <!-- Google Fonts: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables for Light/Dark Theme */
         :root {
             --primary: #0f172a;
             --accent: #2563eb;
-            --card-bg: rgba(255, 255, 255, 0.85); /* Semi-transparent for glass effect */
+            --accent-glow: #3b82f6;
+            --card-bg: rgba(255, 255, 255, 0.88);
             --text-main: #334155;
             --text-muted: #64748b;
             --border-color: rgba(226, 232, 240, 0.8);
             --contact-bg: linear-gradient(135deg, rgba(240, 244, 248, 0.9) 0%, rgba(226, 232, 240, 0.9) 100%);
+            --hero-bg: linear-gradient(135deg, #1e1b4b 0%, #312e81 35%, #4338ca 70%, #0284c7 100%);
         }
 
         [data-theme="dark"] {
             --primary: #f8fafc;
             --accent: #60a5fa;
-            --card-bg: rgba(30, 41, 59, 0.85); /* Semi-transparent for glass effect */
+            --accent-glow: #93c5fd;
+            --card-bg: rgba(30, 41, 59, 0.88);
             --text-main: #cbd5e1;
             --text-muted: #94a3b8;
             --border-color: rgba(51, 65, 85, 0.8);
             --contact-bg: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+            --hero-bg: linear-gradient(135deg, #090d16 0%, #0f172a 40%, #1e1b4b 75%, #1e293b 100%);
         }
 
         /* Dynamic Animated Background */
@@ -36,9 +39,7 @@
             line-height: 1.7;
             color: var(--text-main);
             margin: 0;
-            padding: 40px 25px;
-            
-            /* Light Mode Gradient Background */
+            padding: 0 0 50px 0;
             background: linear-gradient(-45deg, #f8fafc, #e0e7ff, #e2e8f0, #dbeafe);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
@@ -47,7 +48,6 @@
         }
 
         [data-theme="dark"] body {
-            /* Dark Mode Gradient Background */
             background: linear-gradient(-45deg, #0f172a, #1e293b, #020617, #172554);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
@@ -59,66 +59,183 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Dark Mode Button */
+        /* Top Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px 25px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 20px;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-icon {
+            width: 34px;
+            height: 34px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Theme Toggle Button */
         .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--card-bg);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 10px 18px;
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+            padding: 8px 16px;
             border-radius: 30px;
             cursor: pointer;
             font-size: 14px;
             font-family: 'Poppins', sans-serif;
             font-weight: 500;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            z-index: 1000;
         }
         
         .theme-toggle:hover {
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
         }
 
+        /* Colorful Unique Hero Header */
+        .hero-banner {
+            background: var(--hero-bg);
+            position: relative;
+            padding: 10px 25px 90px 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: background 0.5s ease;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(129, 140, 248, 0.2) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 30px auto 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .app-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            color: #38bdf8;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            color: #ffffff;
+            font-size: 42px;
+            font-weight: 800;
+            margin: 0 0 12px 0;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+            font-weight: 400;
+        }
+
+        .date-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e2e8f0;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Main Content Container Overlapping Hero */
         .container {
             max-width: 850px;
-            margin: 0 auto;
+            margin: -45px auto 0 auto;
+            position: relative;
+            z-index: 5;
             background: var(--card-bg);
-            backdrop-filter: blur(16px); /* Glassmorphism Effect */
+            backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
             border: 1px solid var(--border-color);
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
-        h1 {
-            color: var(--primary);
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 12px;
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-        }
-
-        .effective-date {
-            color: var(--text-muted);
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 35px;
+        .intro-text {
+            font-size: 16px;
+            margin-bottom: 30px;
         }
 
         /* Accordion Styles */
         details {
             margin-bottom: 15px;
             border: 1px solid var(--border-color);
-            border-radius: 10px;
+            border-radius: 12px;
             background: rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
         }
@@ -128,12 +245,12 @@
         }
 
         details[open] {
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
             border-color: var(--accent);
         }
 
         summary {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 600;
             color: var(--accent);
             padding: 16px 20px;
@@ -143,7 +260,7 @@
             justify-content: space-between;
             align-items: center;
             border-left: 4px solid var(--accent);
-            border-radius: 10px;
+            border-radius: 12px;
             transition: background 0.3s ease;
         }
 
@@ -173,7 +290,7 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
+            from { opacity: 0; transform: translateY(-8px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -230,18 +347,44 @@
             text-align: center;
             font-weight: 500;
         }
+
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 30px;
+            }
+            .container {
+                padding: 25px 20px;
+                margin-top: -30px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
+    <!-- Dynamic Colorful Hero Header -->
+    <header class="hero-banner">
+        <nav class="navbar">
+            <a href="#" class="brand-logo">
+                <div class="brand-icon">BIQ</div>
+                <span>Balance IQ</span>
+            </a>
+            <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
+        </nav>
 
-    <div class="container">
-        <h1>Privacy Policy</h1>
-        <div class="effective-date"><strong>Effective Date:</strong> October 20, 2026</div>
+        <div class="hero-content">
+            <div class="app-badge">Data Privacy & Security</div>
+            <h1 class="hero-title">Privacy Policy for <span>Balance IQ</span></h1>
+            <p class="hero-subtitle">Transparent guidelines on how we protect, store, and manage your financial records with privacy-first standards.</p>
+            <div class="date-pill">
+                <span>🗓️ Effective Date:</span>
+                <strong>October 20, 2026</strong>
+            </div>
+        </div>
+    </header>
 
-        <p>Welcome to <strong>Balance IQ</strong> ("we", "our", or "us"). We deeply value your trust and are staunchly committed to protecting your personal data and digital privacy. This comprehensive Privacy Policy outlines transparently how our application collects, utilizes, manages, and secures your information when you engage with our financial tracking services.</p>
+    <!-- Main Content Container -->
+    <main class="container">
+        <p class="intro-text">Welcome to <strong>Balance IQ</strong> ("we", "our", or "us"). We deeply value your trust and are staunchly committed to protecting your personal data and digital privacy. This comprehensive Privacy Policy outlines transparently how our application collects, utilizes, manages, and secures your information when you engage with our financial tracking services.</p>
 
         <!-- Dynamic Accordion Sections -->
         <details open>
@@ -311,8 +454,8 @@
                 <p>If you have inquiries, bug reports, feature suggestions, or require technical support concerning Balance IQ or this Privacy Policy, connect with us through our verified official channels:</p>
                 
                 <div class="contact-box">
-                    <p><strong>Direct Developer Email:</strong> <a href="mailto:theunknownsquad999@gmail.com">contact@support.com</a></p>
-                    <p><strong>Official Telegram Update Channel:</strong> <a href="https://t.me/alhamdulillah122sbm" target="_blank">t.me/THE UNKNOWN SQUAD</a></p>
+                    <p><strong>Direct Developer Email:</strong> <a href="mailto:theunknownsquad999@gmail.com"> contact@support.com</a></p>
+                    <p><strong>Official Telegram Update Channel:</strong> <a href="https://t.me/YOUR_TELEGRAM_CHANNEL" target="_blank">t.me/YOUR_TELEGRAM_CHANNEL</a></p>
                 </div>
             </div>
         </details>
@@ -320,7 +463,7 @@
         <div class="footer">
             <p>&copy; 2026 Balance IQ. All rights reserved. Designed for smarter financial management.</p>
         </div>
-    </div>
+    </main>
 
     <!-- JavaScript for Theme Toggle -->
     <script>
@@ -339,7 +482,6 @@
             }
         }
 
-        // Check local storage for saved theme preference on load
         window.onload = () => {
             if (localStorage.getItem('theme') === 'dark') {
                 document.documentElement.setAttribute('data-theme', 'dark');
