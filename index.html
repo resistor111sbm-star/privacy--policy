@@ -4,39 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Balance IQ</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         /* CSS Variables for Light/Dark Theme */
         :root {
             --primary: #0f172a;
             --accent: #2563eb;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.85); /* Semi-transparent for glass effect */
             --text-main: #334155;
             --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --contact-bg: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+            --border-color: rgba(226, 232, 240, 0.8);
+            --contact-bg: linear-gradient(135deg, rgba(240, 244, 248, 0.9) 0%, rgba(226, 232, 240, 0.9) 100%);
         }
 
         [data-theme="dark"] {
             --primary: #f8fafc;
             --accent: #60a5fa;
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
+            --card-bg: rgba(30, 41, 59, 0.85); /* Semi-transparent for glass effect */
             --text-main: #cbd5e1;
             --text-muted: #94a3b8;
-            --border-color: #334155;
-            --contact-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --border-color: rgba(51, 65, 85, 0.8);
+            --contact-bg: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
         }
 
+        /* Dynamic Animated Background */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.7;
             color: var(--text-main);
-            max-width: 850px;
-            margin: 0 auto;
+            margin: 0;
             padding: 40px 25px;
-            background-color: var(--bg-color);
-            transition: background-color 0.3s ease, color 0.3s ease;
+            
+            /* Light Mode Gradient Background */
+            background: linear-gradient(-45deg, #f8fafc, #e0e7ff, #e2e8f0, #dbeafe);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            transition: color 0.3s ease;
+            min-height: 100vh;
+        }
+
+        [data-theme="dark"] body {
+            /* Dark Mode Gradient Background */
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #020617, #172554);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* Dark Mode Button */
@@ -45,26 +65,34 @@
             top: 20px;
             right: 20px;
             background: var(--card-bg);
+            backdrop-filter: blur(10px);
             border: 1px solid var(--border-color);
             color: var(--text-main);
-            padding: 10px 15px;
+            padding: 10px 18px;
             border-radius: 30px;
             cursor: pointer;
-            font-size: 16px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             z-index: 1000;
         }
+        
         .theme-toggle:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
 
         .container {
+            max-width: 850px;
+            margin: 0 auto;
             background: var(--card-bg);
+            backdrop-filter: blur(16px); /* Glassmorphism Effect */
+            -webkit-backdrop-filter: blur(16px);
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             border: 1px solid var(--border-color);
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
@@ -73,7 +101,8 @@
             color: var(--primary);
             border-bottom: 3px solid var(--accent);
             padding-bottom: 12px;
-            font-size: 28px;
+            font-size: 32px;
+            font-weight: 700;
             margin-bottom: 10px;
             transition: color 0.3s ease;
         }
@@ -81,20 +110,25 @@
         .effective-date {
             color: var(--text-muted);
             font-size: 14px;
-            margin-bottom: 30px;
+            font-weight: 500;
+            margin-bottom: 35px;
         }
 
         /* Accordion Styles */
         details {
             margin-bottom: 15px;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            background: var(--card-bg);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
         }
 
+        [data-theme="dark"] details {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
         details[open] {
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border-color: var(--accent);
         }
 
@@ -102,14 +136,14 @@
             font-size: 18px;
             font-weight: 600;
             color: var(--accent);
-            padding: 15px 20px;
+            padding: 16px 20px;
             cursor: pointer;
             list-style: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-left: 4px solid var(--accent);
-            border-radius: 8px;
+            border-radius: 10px;
             transition: background 0.3s ease;
         }
 
@@ -130,7 +164,7 @@
         }
 
         summary:hover {
-            background: rgba(37, 99, 235, 0.05);
+            background: rgba(37, 99, 235, 0.08);
         }
 
         .details-content {
@@ -144,7 +178,8 @@
         }
 
         p, li {
-            font-size: 15px;
+            font-size: 15.5px;
+            font-weight: 400;
             color: var(--text-main);
         }
 
@@ -154,7 +189,7 @@
         }
 
         li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         a {
@@ -172,9 +207,9 @@
         .contact-box {
             background: var(--contact-bg);
             border-left: 5px solid var(--accent);
-            padding: 20px;
+            padding: 22px;
             margin-top: 25px;
-            border-radius: 8px;
+            border-radius: 10px;
             transition: transform 0.3s ease;
         }
         
@@ -183,16 +218,17 @@
         }
 
         .contact-box p {
-            margin: 6px 0;
+            margin: 8px 0;
         }
 
         .footer {
-            margin-top: 40px;
+            margin-top: 45px;
             padding-top: 20px;
             border-top: 1px solid var(--border-color);
-            font-size: 13px;
+            font-size: 14px;
             color: var(--text-muted);
             text-align: center;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -275,8 +311,8 @@
                 <p>If you have inquiries, bug reports, feature suggestions, or require technical support concerning Balance IQ or this Privacy Policy, connect with us through our verified official channels:</p>
                 
                 <div class="contact-box">
-                    <p><strong>Direct Developer Email:</strong> <a href="mailto:unknownsquad999@gmail.com">contact@support.com</a></p>
-                    <p><strong>Official Telegram Update Channel:</strong> <a href="https://t.me/YOUR_TELEGRAM_CHANNEL" target="_blank">t.me/YOUR_TELEGRAM_CHANNEL</a></p>
+                    <p><strong>Direct Developer Email:</strong> <a href="mailto:contact@support.com">contact@support.com</a></p>
+                    <p><strong>Official Telegram Update Channel:</strong> <a href="https://t.me/THE_UNKNOWN_SQUAD" target="_blank">t.me/THE UNKNOWN SQUAD</a></p>
                 </div>
             </div>
         </details>
