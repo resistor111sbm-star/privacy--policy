@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Balance IQ</title>
     <style>
+        /* CSS Variables for Light/Dark Theme */
         :root {
             --primary: #0f172a;
             --accent: #2563eb;
@@ -13,71 +14,178 @@
             --text-main: #334155;
             --text-muted: #64748b;
             --border-color: #e2e8f0;
+            --contact-bg: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
         }
+
+        [data-theme="dark"] {
+            --primary: #f8fafc;
+            --accent: #60a5fa;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --contact-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.7;
             color: var(--text-main);
             max-width: 850px;
             margin: 0 auto;
-            padding: 25px;
+            padding: 40px 25px;
             background-color: var(--bg-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
+        /* Dark Mode Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 10px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
         .container {
             background: var(--card-bg);
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.06);
             border: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
+
         h1 {
             color: var(--primary);
             border-bottom: 3px solid var(--accent);
             padding-bottom: 12px;
             font-size: 28px;
             margin-bottom: 10px;
+            transition: color 0.3s ease;
         }
+
         .effective-date {
             color: var(--text-muted);
             font-size: 14px;
             margin-bottom: 30px;
         }
-        h2 {
-            color: var(--accent);
-            margin-top: 35px;
-            font-size: 20px;
-            border-left: 4px solid var(--accent);
-            padding-left: 10px;
+
+        /* Accordion Styles */
+        details {
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--card-bg);
+            transition: all 0.3s ease;
         }
+
+        details[open] {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-color: var(--accent);
+        }
+
+        summary {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent);
+            padding: 15px 20px;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+
+        summary:hover {
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .details-content {
+            padding: 0 20px 20px 20px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         p, li {
             font-size: 15px;
             color: var(--text-main);
         }
+
         ul {
             padding-left: 22px;
             margin-top: 8px;
         }
+
         li {
             margin-bottom: 8px;
         }
+
         a {
             color: var(--accent);
             text-decoration: none;
             font-weight: 600;
+            transition: opacity 0.3s ease;
         }
+
         a:hover {
             text-decoration: underline;
+            opacity: 0.8;
         }
+
         .contact-box {
-            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+            background: var(--contact-bg);
             border-left: 5px solid var(--accent);
             padding: 20px;
             margin-top: 25px;
             border-radius: 8px;
+            transition: transform 0.3s ease;
         }
+        
+        .contact-box:hover {
+            transform: translateX(5px);
+        }
+
         .contact-box p {
             margin: 6px 0;
         }
+
         .footer {
             margin-top: 40px;
             padding-top: 20px;
@@ -89,60 +197,119 @@
     </style>
 </head>
 <body>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙 Dark Mode</button>
+
     <div class="container">
         <h1>Privacy Policy</h1>
         <div class="effective-date"><strong>Effective Date:</strong> October 20, 2026</div>
 
         <p>Welcome to <strong>Balance IQ</strong> ("we", "our", or "us"). We deeply value your trust and are staunchly committed to protecting your personal data and digital privacy. This comprehensive Privacy Policy outlines transparently how our application collects, utilizes, manages, and secures your information when you engage with our financial tracking services.</p>
 
-        <h2>1. Information Architecture & Data Collection</h2>
-        <p>Balance IQ is engineered with a privacy-first mindset. To ensure optimal performance regarding income analytics, expense logging, and report compilation, we interact with the following categories of data:</p>
-        <ul>
-            <li><strong>User-Provided Financial Records:</strong> Income values, expense figures, custom category tags, budget notes, and monetary transactions that you manually input into the application database.</li>
-            <li><strong>Generated Documents:</strong> Exported financial reports formatted in PDF or CSV structures compiled directly from your local inputs.</li>
-            <li><strong>Telemetry & Device Diagnostics:</strong> Non-identifying device metrics, including operating system versions, crash logs, and performance diagnostics strictly utilized to eliminate bugs and enhance application stability.</li>
-        </ul>
+        <!-- Dynamic Accordion Sections -->
+        <details open>
+            <summary>1. Information Architecture & Data Collection</summary>
+            <div class="details-content">
+                <p>Balance IQ is engineered with a privacy-first mindset. To ensure optimal performance regarding income analytics, expense logging, and report compilation, we interact with the following categories of data:</p>
+                <ul>
+                    <li><strong>User-Provided Financial Records:</strong> Income values, expense figures, custom category tags, budget notes, and monetary transactions that you manually input into the application database.</li>
+                    <li><strong>Generated Documents:</strong> Exported financial reports formatted in PDF or CSV structures compiled directly from your local inputs.</li>
+                    <li><strong>Telemetry & Device Diagnostics:</strong> Non-identifying device metrics, including operating system versions, crash logs, and performance diagnostics strictly utilized to eliminate bugs and enhance application stability.</li>
+                </ul>
+            </div>
+        </details>
 
-        <h2>2. Purpose and Utilization of Data</h2>
-        <p>The information we process is strictly compartmentalized to deliver and optimize core product dynamics:</p>
-        <ul>
-            <li>To dynamically compute net balances, categorize expenditures, and generate intuitive trend analytics.</li>
-            <li>To construct secure, downloadable financial summaries in structural PDF and CSV formats upon user request.</li>
-            <li>To continuously optimize app responsiveness, fix critical bugs, and refine overall User Interface/User Experience (UI/UX) dynamics.</li>
-        </ul>
+        <details>
+            <summary>2. Purpose and Utilization of Data</summary>
+            <div class="details-content">
+                <p>The information we process is strictly compartmentalized to deliver and optimize core product dynamics:</p>
+                <ul>
+                    <li>To dynamically compute net balances, categorize expenditures, and generate intuitive trend analytics.</li>
+                    <li>To construct secure, downloadable financial summaries in structural PDF and CSV formats upon user request.</li>
+                    <li>To continuously optimize app responsiveness, fix critical bugs, and refine overall User Interface/User Experience (UI/UX) dynamics.</li>
+                </ul>
+            </div>
+        </details>
 
-        <h2>3. Data Governance, Storage & Security Protocols</h2>
-        <ul>
-            <li><strong>Local & Secured State Management:</strong> Your financial transaction logs are processed and secured within robust storage environments to guarantee uninterrupted, private access throughout your user sessions.</li>
-            <li><strong>Proactive Security Measures:</strong> We deploy industry-standard administrative, physical, and technical safeguards designed meticulously to mitigate unauthorized entry, data leakage, alteration, or unlawful destruction.</li>
-        </ul>
+        <details>
+            <summary>3. Data Governance, Storage & Security Protocols</summary>
+            <div class="details-content">
+                <ul>
+                    <li><strong>Local & Secured State Management:</strong> Your financial transaction logs are processed and secured within robust storage environments to guarantee uninterrupted, private access throughout your user sessions.</li>
+                    <li><strong>Proactive Security Measures:</strong> We deploy industry-standard administrative, physical, and technical safeguards designed meticulously to mitigate unauthorized entry, data leakage, alteration, or unlawful destruction.</li>
+                </ul>
+            </div>
+        </details>
 
-        <h2>4. Zero Third-Party Data Monetization</h2>
-        <ul>
-            <li>We maintain a strict <strong>Zero-Sale Policy</strong>. We do not trade, rent, lease, or monetize your personal or financial database to external commercial entities or advertisers.</li>
-            <li>Data interaction is strictly confined to internal operational frameworks required to maintain app features or satisfy mandatory regulatory compliance.</li>
-        </ul>
+        <details>
+            <summary>4. Zero Third-Party Data Monetization</summary>
+            <div class="details-content">
+                <ul>
+                    <li>We maintain a strict <strong>Zero-Sale Policy</strong>. We do not trade, rent, lease, or monetize your personal or financial database to external commercial entities or advertisers.</li>
+                    <li>Data interaction is strictly confined to internal operational frameworks required to maintain app features or satisfy mandatory regulatory compliance.</li>
+                </ul>
+            </div>
+        </details>
 
-        <h2>5. User Autonomy, Rights & Control Dashboard</h2>
-        <ul>
-            <li><strong>Autonomous Modification:</strong> You maintain absolute administrative rights to input, edit, override, or permanently purge any transaction logs or categories inside Balance IQ instantly.</li>
-            <li><strong>Portability Control:</strong> You hold the absolute right to extract and download your complete financial records into portable CSV or PDF formats whenever required.</li>
-        </ul>
+        <details>
+            <summary>5. User Autonomy, Rights & Control Dashboard</summary>
+            <div class="details-content">
+                <ul>
+                    <li><strong>Autonomous Modification:</strong> You maintain absolute administrative rights to input, edit, override, or permanently purge any transaction logs or categories inside Balance IQ instantly.</li>
+                    <li><strong>Portability Control:</strong> You hold the absolute right to extract and download your complete financial records into portable CSV or PDF formats whenever required.</li>
+                </ul>
+            </div>
+        </details>
 
-        <h2>6. Policy Modifications & Evolution</h2>
-        <p>We reserve the authority to update, amend, or revise this Privacy Policy periodically to reflect technological upgrades or legal changes. Significant modifications will be instantly communicated via our official update channels, and the "Effective Date" at the top will be appropriately refreshed.</p>
+        <details>
+            <summary>6. Policy Modifications & Evolution</summary>
+            <div class="details-content">
+                <p>We reserve the authority to update, amend, or revise this Privacy Policy periodically to reflect technological upgrades or legal changes. Significant modifications will be instantly communicated via our official update channels, and the "Effective Date" at the top will be appropriately refreshed.</p>
+            </div>
+        </details>
 
-        <h2>7. Developer Support & Community Channels</h2>
-        <p>If you have inquiries, bug reports, feature suggestions, or require technical support concerning Balance IQ or this Privacy Policy, connect with us through our verified official channels:</p>
-        
-        <div class="contact-box">
-            <p><strong>Direct Developer Email:</strong> <a href="mailto:theunknownsquad999@gmail.com">contact@support.com</a></p>
-            <p><strong>Official Telegram Update Channel:</strong> <a href="https://t.me/alhamdulillah122sbm" target="_blank">t.me/THE UNKNOWN SQUAD</a></p>
-        </div>
+        <details>
+            <summary>7. Developer Support & Community Channels</summary>
+            <div class="details-content">
+                <p>If you have inquiries, bug reports, feature suggestions, or require technical support concerning Balance IQ or this Privacy Policy, connect with us through our verified official channels:</p>
+                
+                <div class="contact-box">
+                    <p><strong>Direct Developer Email:</strong> <a href="mailto:unknownsquad999@gmail.com">contact@support.com</a></p>
+                    <p><strong>Official Telegram Update Channel:</strong> <a href="https://t.me/YOUR_TELEGRAM_CHANNEL" target="_blank">t.me/YOUR_TELEGRAM_CHANNEL</a></p>
+                </div>
+            </div>
+        </details>
 
         <div class="footer">
             <p>&copy; 2026 Balance IQ. All rights reserved. Designed for smarter financial management.</p>
         </div>
     </div>
+
+    <!-- JavaScript for Theme Toggle -->
+    <script>
+        function toggleTheme() {
+            const body = document.documentElement;
+            const btn = document.getElementById('themeBtn');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                btn.innerHTML = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                btn.innerHTML = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Check local storage for saved theme preference on load
+        window.onload = () => {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.getElementById('themeBtn').innerHTML = '☀️ Light Mode';
+            }
+        }
+    </script>
 </body>
 </html>
